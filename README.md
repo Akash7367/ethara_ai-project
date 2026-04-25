@@ -3,8 +3,8 @@
 A lightweight, professional Human Resource Management System built for an end-to-end full-stack development assessment.
 
 ## Submission Details
-- **Live Application URL**: [Replace with your live link]
-- **GitHub Repository Link**: [Replace with your repository link]
+- **Live Application URL**: https://etharaai-project-production-19ef.up.railway.app/
+- **GitHub Repository Link**: https://github.com/Akash7367/ethara_ai-project
 
 ## Features
 
