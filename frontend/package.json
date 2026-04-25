@@ -13,7 +13,8 @@
     "axios": "^1.15.2",
     "lucide-react": "^1.11.0",
     "react": "^19.2.5",
-    "react-dom": "^19.2.5"
+    "react-dom": "^19.2.5",
+    "@rolldown/binding-linux-x64-gnu": "1.0.0-rc.17"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
@@ -27,6 +28,6 @@
     "vite": "^8.0.10"
   },
   "engines": {
-    "node": ">=20.0.0"
+    "node": "20.19.0"
   }
 }
