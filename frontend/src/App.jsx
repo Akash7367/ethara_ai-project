@@ -148,13 +148,16 @@ const App = () => {
       </header>
 
       <main className="container animate-fade-in">
-        {error && (
-          <div className="card" style={{ borderLeft: '4px solid var(--danger)', marginBottom: '2rem', display: 'flex', alignItems: 'center', gap: '1rem', color: 'var(--danger)' }}>
-            <AlertCircle size={20} />
-            <span>{error}</span>
-            <button style={{ marginLeft: 'auto', background: 'none', color: 'var(--text-light)' }} onClick={() => setError(null)}><X size={16} /></button>
-          </div>
-        )}
+      {/* Error Toast */}
+      {error && (
+        <div className="animate-fade-in" style={{ position: 'fixed', top: '2rem', left: '50%', transform: 'translateX(-50%)', zIndex: 3000, background: 'white', color: 'var(--danger)', padding: '1rem 1.5rem', borderRadius: 'var(--radius)', display: 'flex', alignItems: 'center', gap: '0.75rem', boxShadow: 'var(--shadow-lg)', border: '1px solid var(--danger)', minWidth: '320px' }}>
+          <AlertCircle size={20} />
+          <span style={{ fontWeight: 500 }}>{error}</span>
+          <button style={{ marginLeft: 'auto', background: 'none', color: 'var(--text-light)', border: 'none', padding: 0 }} onClick={() => setError(null)}>
+            <X size={18} />
+          </button>
+        </div>
+      )}
 
         {loading && !stats && !employees.length && (
           <div style={{ textAlign: 'center', padding: '4rem' }}>
