@@ -26,14 +26,23 @@ def read_root():
 # Employee Endpoints
 @app.post("/employees/", response_model=schemas.Employee)
 def create_employee(employee: schemas.EmployeeCreate, db: Session = Depends(get_db)):
+    # Clean inputs
+    employee.employee_id = employee.employee_id.strip()
+    employee.email = employee.email.strip()
+    
+    # Check for duplicate Employee ID
     db_employee = crud.get_employee_by_id(db, employee_id=employee.employee_id)
     if db_employee:
-        raise HTTPException(status_code=400, detail="Employee ID already registered")
+        raise HTTPException(
+            status_code=400, 
+            detail="employee already exist with this empid please enter differnent empid"
+        )
     
+    # Check for duplicate Email
     db_email = crud.get_employee_by_email(db, email=employee.email)
     if db_email:
-        raise HTTPException(status_code=400, detail="Email already registered")
-        
+        raise HTTPException(status_code=400, detail="An employee with this email already exists.")
+    
     return crud.create_employee(db=db, employee=employee)
 
 @app.get("/employees/", response_model=List[schemas.Employee])
